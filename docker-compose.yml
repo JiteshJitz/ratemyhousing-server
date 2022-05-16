@@ -1,0 +1,21 @@
+version: '3'
+services:
+  app:
+    container_name: node-mongo
+    restart: always
+    build: .
+    ports:
+      - '8000:8000'
+    links:
+      - mongo
+  mongo:
+    container_name: mongodb
+    image: mongo
+    ports: 
+      - '27017:27017'
+    command:
+        [
+          "/bin/sh",
+          "-c",
+          "mongod --logpath /dev/null --bind_ip localhost --bind_ip_all --replSet 'rs0' && mongo --eval 'rs.initiate(); rs.status()'",
+        ]

@@ -1,0 +1,8 @@
+{
+    "db":{
+        "host":"mongodb://mongodb",
+        "port": 27017,
+        "name":"rmh_ci_test",
+        "dbUrl":"mongodb://mongodb:27017/rmh_ci_test?replicaSet=rs0"
+    }
+}
